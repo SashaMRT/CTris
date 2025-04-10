@@ -2,6 +2,8 @@
 
 Ce projet consiste à concevoir et implémenter le jeu classique Tetris en langage C, en suivant une approche modulaire et structurée. Le projet est réalisé dans le cadre du module Développement d'Applications et en lien avec la thématique Valorisation de la donnée et cybersécurité.
 
+![Bannière CTris](images/banner.png)
+
 ## Table des Matières
 
 1. [Introduction](#introduction)
@@ -11,9 +13,12 @@ Ce projet consiste à concevoir et implémenter le jeu classique Tetris en langa
 5. [Installation et Configuration](#installation-et-configuration)
 6. [Utilisation](#utilisation)
 7. [Contribution](#contribution)
-8. [Licence](#licence)
-9. [Auteurs](#auteurs)
-10. [Remerciements](#remerciements)
+8. [Personnalisation](#personnalisation)
+9. [Rapports de Bugs](#rapports-de-bugs)
+10. [Demandes de Fonctionnalités](#demandes-de-fonctionnalités)
+11. [Licence](#licence)
+12. [Auteurs](#auteurs)
+13. [Remerciements](#remerciements)
 
 ## Introduction
 
@@ -110,6 +115,18 @@ Les contributions sont les bienvenues ! Pour contribuer, veuillez suivre ces ét
 3. Committez vos modifications (`git commit -m 'Add some AmazingFeature'`).
 4. Pushez vers la branche (`git push origin feature/AmazingFeature`).
 5. Ouvrez une Pull Request.
+
+## Personnalisation
+
+Pour plus d'informations sur les options de personnalisation, veuillez consulter le fichier [custom.md](.github/ISSUE_TEMPLATE/custom.md).
+
+## Rapports de Bugs
+
+Pour signaler un bug, veuillez suivre le modèle fourni dans le fichier [bug_report.md](.github/ISSUE_TEMPLATE/bug_report.md).
+
+## Demandes de Fonctionnalités
+
+Pour proposer une nouvelle fonctionnalité, veuillez suivre le modèle fourni dans le fichier [feature_request.md](.github/ISSUE_TEMPLATE/feature_request.md).
 
 ## Licence
 

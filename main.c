@@ -1,28 +1,4 @@
-#include <ncurses.h>
-
-typedef struct s_point {
-    int y;
-    int x;
-} t_point;
-
-// Fonction Gestion des mouvements
-void bouger(t_point *pos, int ch)
-{
-    switch (ch) {
-        case KEY_LEFT:
-            pos->x = (pos->x > 0) ? pos->x - 1 : 0;
-            break;
-        case KEY_RIGHT:
-            pos->x = (pos->x < COLS - 1) ? pos->x + 1 : COLS - 1;
-            break;
-        case KEY_UP:
-            pos->y = (pos->y > 0) ? pos->y - 1 : 0;
-            break;
-        case KEY_DOWN:
-            pos->y = (pos->y < LINES - 1) ? pos->y + 1 : LINES - 1;
-            break;
-    }
-}
+#include "main.h"
 
 int main()
 {
@@ -31,9 +7,13 @@ int main()
     
     // Initialisation de ncurses
     initscr();
+    // Enlever les limites des lignes
     cbreak();
+    // Remet les lignes en fonction de la resolution de la fenetre
     noecho();
-    keypad(stdscr, TRUE);
+    // Permet d'utiliser les touches de fonction
+    keypad(stdscr, TRUE); // stdscr correspond a la limite de taille de la fenêtre
+    // Enlever les bordures de la fenetre
     curs_set(0);
     
     // Position initiale au centre
@@ -42,13 +22,18 @@ int main()
     
     while ((ch = getch()) != 'q')
     {
+        // Effacer l'écran
         clear();
+        // Appel de la fonction bouger
         bouger(&pos, ch);
         
+        // afficher le caractère "G" à la position voulu
         mvprintw(pos.y, pos.x, "G");
+        // mise a jour de la position
         refresh();
     }
     
+    // Fin de ncurses (similaire a un free)
     endwin();
     return 0;
 }

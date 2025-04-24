@@ -10,7 +10,7 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
 # Add the executable
-add_executable(CTris ../main.c)
+add_executable(CTris ../main.c ../tetrimino.c)
 
 # Include directories
 include_directories(..)

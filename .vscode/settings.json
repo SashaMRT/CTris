@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "define.h": "c",
+        "ncurses.h": "c"
+    }
+}

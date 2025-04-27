@@ -6,21 +6,25 @@ typedef struct s_point {
     int x;
 } t_point;
 
+typedef enum {
+    SHAPE_NONE = 0,
+    SHAPE_BEGIN,
+    SHAPE_I = SHAPE_BEGIN,
+    SHAPE_J,
+    SHAPE_L,
+    SHAPE_O,
+    SHAPE_S,
+    SHAPE_T,
+    SHAPE_Z,
+    SHAPE_END
+} t_shape;
+
 // Definition de la structure tetrimino
 typedef struct s_tetrimino {
-    int shape;
+    t_shape shape;
     t_point location;
     int orientation;
 } t_tetrimino;
-
-// On défini ici les formes des tetriminos sous forme de chiffres
-#define TETRIMINO_I 0
-#define TETRIMINO_J 1
-#define TETRIMINO_L 2
-#define TETRIMINO_O 3
-#define TETRIMINO_S 4
-#define TETRIMINO_Z 5
-#define TETRIMINO_T 6
 
 // Necessaire pour les tableaux
 #define TETRIS_TETRIMINO_NB 7

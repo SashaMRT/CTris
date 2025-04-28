@@ -51,7 +51,7 @@ const t_point TETRIMINO_SHAPES[TETRIS_TETRIMINO_NB][TETRIS_TETRIMINO_ORIENTATION
 
 // Initialiser un Tetrimino avec une forme donnée
 void init_tetrimino(t_tetrimino *tetrimino, t_shape shape) {
-    tetrimino->shape = shape;
+    tetrimino->shape = shape - SHAPE_BEGIN;
     tetrimino->location.y = 0;
     tetrimino->location.x = TETRIS_BOARD_WIDTH / 2; // Centre initialement
     tetrimino->orientation = 0;

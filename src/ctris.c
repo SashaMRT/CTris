@@ -2,6 +2,7 @@
 #include "tetrimino.h"
 #include <ncurses.h>
 #include <stdlib.h>
+#include <sys/time.h>
 
 // Définition de game_state
 t_game_state game_state;
@@ -31,7 +32,7 @@ void display_board() {
                 mvprintw(y, x * TETRIS_TETRIMINO_SCALE_X, "##");
                 attroff(COLOR_PAIR(game_state.board[y][x]));
             } else {
-                mvprintw(y, x * TETRIS_TETRIMINO_SCALE_X, "  ");
+                mvprintw(y, x * TETRIS_TETRIMINO_SCALE_X, ".");
             }
         }
     }
@@ -57,7 +58,7 @@ void handle_input() {
             // Drop Tetrimino instantly
             while (move_tetrimino(&game_state.current_tetrimino, 1, 0));
             break;
-        case 'a':
+        case KEY_UP:
             rotate_tetrimino(&game_state.current_tetrimino);
             break;
         case 'q':
@@ -84,7 +85,10 @@ void update_game_state() {
         // Vérifier et supprimer les lignes complètes
         check_lines();
         // Générer un nouveau Tetrimino
-        init_tetrimino(&game_state.current_tetrimino, rand() % TETRIS_TETRIMINO_NB + SHAPE_BEGIN);
+        struct timeval ms;
+        gettimeofday(&ms, NULL);
+        srand(ms.tv_sec * 1000 + ms.tv_usec / 1000);
+        init_tetrimino(&game_state.current_tetrimino, rand() % (TETRIS_TETRIMINO_NB - SHAPE_BEGIN + 1) + SHAPE_BEGIN);
         // Vérifier si le nouveau Tetrimino peut être placé
         if (!is_valid_move(&game_state.current_tetrimino, 0, 0)) {
             game_state.game_over = true;

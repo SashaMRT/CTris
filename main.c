@@ -82,7 +82,7 @@ int main() {
         }
     }
 
-exit_game:
+    exit_game:
     // Clean up and exit ncurses
     endwin();
     return 0;
